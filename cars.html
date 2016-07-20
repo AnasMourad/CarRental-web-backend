@@ -108,12 +108,13 @@
                 <div class="tab_detail"> 
                     <div class="search_bar">
                         <form id="search-input"><input name="searchfor" id="find-car-input" placeholder="Type car make, model, year, color, etc."  class="search_field" type="text"><div id="find-car" class="search_button"><img src="images/glass.png"></div></form>
+
                     </div>
                     <div id="search_results">
                     </div>
                 </div>
             </div>
-
+            <input id="#hidden-input" hidden name="hidden-input"/>
             <div class="tab"> Rented Cars
                 <div class="tab_detail_hidden"> 
                     <div id="rented_cars">
@@ -146,13 +147,40 @@
 
             success: function (response) {
 
-                console.log(response);
+               // console.log(response);
                 if (response != "failure") {
                     alert("yes");//
                     /**
                      * Load The after login page .
                      */
                     $("#search_results").html(response);
+
+                    $(".car_rent").on("click", function(){
+
+                        //process rent car php
+                        var car_id = $(this).attr("id");
+                        //use hidden element to set the car_id
+                        $("#hidden-input").val(car_id);
+                        //send ajax request
+                        var data_2 = "hidden-input="+car_id;
+                        console.log(data_2);
+                        $.ajax({
+
+                            type: 'POST',
+                            url: 'rentacar.php',
+                            data: data_2,
+
+                            success: function (response) {
+
+                                console.log(response);
+                                if (response != "failure") {
+
+                                    alert("done");
+
+                                }
+                            }
+                            });
+                                });
                 } else {
 
                 }
