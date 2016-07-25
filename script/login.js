@@ -13,7 +13,7 @@ function maybe_login(event){
 function login() {
         $.ajax({
         method: "POST",
-        url: "LOGIN-PAGE",
+        url: "login_session.php",
         dataType: "text",
         data: new FormData($("#login_form")[0]),
         processData: false,
