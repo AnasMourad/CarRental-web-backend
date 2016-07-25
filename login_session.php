@@ -7,7 +7,7 @@ if (isset($_POST['name']) && isset($_POST['password'])) {
     $username = sanitizeMYSQL($connection,$_POST['name']); //sanitize the username
     $password = md5(sanitizeMYSQL($connection,$_POST['password'])); //sanitize the password, and encrypt it
 
-    $query = "SELECT * FROM Student WHERE ID='" . $username . "' AND Password='" . $password . "'";
+    $query = //Need correct PHP query here
     $result = mysqli_query($connection,$query);
     if ($result) {
         $row_count = mysqli_num_rows($result);
