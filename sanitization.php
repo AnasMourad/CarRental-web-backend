@@ -17,5 +17,5 @@ function sanitizeMYSQL($connection,$var){
     $var=  sanitizeString($var);
     return $var;
 }
-
+ 
 ?>
