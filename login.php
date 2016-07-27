@@ -1,11 +1,7 @@
 
 <?php
-//I DON'T THINK WE NEED TO INCLUDE THIS FILE
+
 session_start();
-/*
- * MMYSQL CONNECTION
- * Host: locahost
- */
 
 require ("connection.php");
 $name;

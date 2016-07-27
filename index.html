@@ -44,11 +44,8 @@
             success :  function(response){
                 console.log(data);
                 console.log(response);
-                if(response=="success"){
+                if(response!="failure"){
                     alert("yes");//
-                    /**
-                     * Load The after login page .
-                     */
                     window.location.assign("cars.html"); //redirect the page to cars.html
 
                 }else{
