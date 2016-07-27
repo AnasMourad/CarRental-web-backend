@@ -9,7 +9,9 @@ session_start();
         FROM car
           INNER JOIN carspecs
         on car.carSpecsId = carspecs.id
-        WHERE (('$searchfor' LIKE CONCAT('%', carspecs.model, '%')) OR ('$searchfor' LIKE CONCAT('%', carspecs.yearMade, '%' )))";
+        WHERE (('$searchfor' LIKE CONCAT('%', carspecs.model, '%')) OR ('$searchfor' LIKE CONCAT('%', carspecs.yearMade, '%' )))
+        AND car.status = 1
+        ";
         echo $query;
         $process_query = mysqli_query($connection, $query);
         $record = false;
@@ -37,7 +39,6 @@ session_start();
             $html.="<div class='car_size'> Size: $size</div>";
             $html.="<div class='car_rent' id='$car_id'> Rent Car </div>";
             $html.="</div>";
-
             $record = true;
             echo $html;
         }
