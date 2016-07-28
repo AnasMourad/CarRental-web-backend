@@ -1,11 +1,13 @@
 <?php
 
-require_once "../connection.php";
+require_once "connection.php";
+require_once "sanitization.php";
+
 session_start();
 
 function show_rented_cars($connection){
 
-    $user_id = $_SESSION["user_name"];
+    $user_id = sanitizeMYSQL($connection, $_SESSION["user_name"]);
 
     $query = "SELECT car.Picture_Type, car.picture, rental.rentDate, rental.id, carspecs.size, carspecs.yearMade, carspecs.Make, carspecs.Model, customer.Name, rental.CustomerID FROM customer
     JOIN rental
@@ -32,7 +34,7 @@ function show_rented_cars($connection){
 
 function return_car($connection){
 
-    $rental_id = $_POST["rental_id"];
+    $rental_id = sanitizeMYSQL($connection, $_POST["rental_id"]);
 
     //get car id from rental
     $query = "SELECT rental.carID FROM rental where rental.id=$rental_id";
@@ -85,7 +87,7 @@ function show_returned_cars($connection){
 }
 function car_search($connection){
     //link carspec table to car table
-    $searchfor = $_POST["searchfor"];
+    $searchfor = sanitizeMYSQL($connection, $_POST["searchfor"]);
 
     $query = "SELECT car.id, car.picture, car.picture_type, carspecs.make, carspecs.model, carspecs.yearMade, carspecs.size, car.color
         FROM car
@@ -118,7 +120,7 @@ function process_rent_car($connection){
 
     $current_user =  $_SESSION["user_name"];
     //CATCHING SELECTED CAR ID USING HIDDEN INPUT//CAN BE MODIFIED LATER!
-    $carID = $_POST["hidden-input"];
+    $carID = sanitizeMYSQL($connection, $_POST["hidden-input"]);
 
     //ADDING CAR RENTAL RECORD TO RENTAL TABLE
     $query = "INSERT INTO rental (rentDate, status, customerID, carID)
@@ -143,35 +145,9 @@ $res;
 
 // function for finding a car (Searching)
 
-function authenticate($password, $hashed_password){
-    return $hashed_password==md5($password);
-}
 
 function login($connection){
 
-    $name = $_POST["name"];
-    $password = $_POST["password"];
-
-    $query = "SELECT password, phone, address FROM customer WHERE id = '$name'";
-    $result = mysqli_query($connection, $query);
-    $result_arr = mysqli_fetch_assoc($result);
-    $hashed_password = $result_arr["password"];
-
-    if(authenticate($password, $hashed_password)){
-        //echo "correct authen";
-        /*
-         * CREATE SESSION FOR CURRENT USER!
-         */
-        $_SESSION["user_name"] = $name;
-        $_SESSION["user_phone"] = $result_arr["phone"];
-        $SESSION["user_address"] = $result_arr["address"];
-        echo "success";
-
-    }else{
-
-        echo "failure";
-
-    }
 
 }
 switch($request_type){

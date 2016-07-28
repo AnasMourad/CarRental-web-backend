@@ -19,8 +19,10 @@ function login() {
         processData: false,
         contentType: false,
         success: function (data) {
-        if($.trim(data)=="success")
-            window.location.assign("cars.html"); //redirect the page to cars.html
+
+            if($.trim(data)=="success"){
+             window.location.assign("cars.html"); //redirect the page to cars.html
+            }
         else{
             $("#loading").attr("class","loading_hidden"); //hide the loading icon
             $("#login_feedback").html("Invalid username or password"); //show feedback
