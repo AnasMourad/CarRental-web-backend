@@ -34,20 +34,20 @@
 
     $("#search-button").on("click", function(){
 
-        var data = $("#login_form").serialize();
+        var data = $("#login_form").serialize()+"&request_type=login";
         $.ajax({
 
             type : 'POST',
-            url  : 'login.php',
+            url  : 'server/controller.php',
             data : data,
 
             success :  function(response){
-                console.log(data);
-                console.log(response);
+
+                console.log("sent data: "+data);
                 if(response!="failure"){
+                    console.log("resp: "+response);
                     alert("yes");//
                     window.location.assign("cars.html"); //redirect the page to cars.html
-
                 }else{
                     alert("no");
                 }

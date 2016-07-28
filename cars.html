@@ -251,30 +251,36 @@
 
 
     function display_search_for_car(data){
+        data+='&request_type=car_search';
         $.ajax({
 
             type: 'POST',
-            url: 'findcar.php',
+            url: 'server/controller.php',
+            dataType: 'json',
             data: data,
 
-            success: function (response) {
 
-                // console.log(response);
+            success: function (response) {
+                console.log(data);
+                response = response.search_results;
+
                 if (response != "failure") {
-                    alert("yes");//
-                    /**
-                     * Load The after login page .
-                     */
-                    $("#search_results").html(response);
+
+
+                    var info_template=$("#find-car-template").html();//get the info-template
+                    var html_maker=new htmlMaker(info_template);
+                    var html=html_maker.getHTML(response);//generate dynamic HTML for student-info
+                    $("#search_results").html(html);//show the student info in the info div
 
                     $(".car_rent").on("click", function(){
 
                         var curr = $(this).attr("id")
+                        alert(curr);
                         rent_car(curr);
                     });
 
                 } else {
-
+                    alert("failure");
                 }
             }
         });

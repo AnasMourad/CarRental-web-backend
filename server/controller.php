@@ -83,12 +83,80 @@ function show_returned_cars($connection){
     return json_encode($final_result);
 
 }
+function car_search($connection){
+    //link carspec table to car table
+    $searchfor = $_POST["searchfor"];
+
+    $query = "SELECT car.id, car.picture, car.picture_type, carspecs.make, carspecs.model, carspecs.yearMade, carspecs.size, car.color
+        FROM car
+          INNER JOIN carspecs
+        on car.carSpecsId = carspecs.id
+        WHERE (('$searchfor' LIKE CONCAT('%', carspecs.model, '%')) OR ('$searchfor' LIKE CONCAT('%', carspecs.yearMade, '%' )))
+        AND car.status = 1
+        ";
+
+    $process_query = mysqli_query($connection, $query);
+    $record = false;
+
+    $final_results = array();
+
+    while( $row =  mysqli_fetch_assoc($process_query) ){
+
+        $item = array( "make"=>$row["make"], "model"=>$row["model"],"year"=>$row["yearMade"],
+            "size"=>$row["size"], "ID"=>$row["id"]);
+        $item["picture"] = 'data:' . $row["picture_type"] . ';base64,' . base64_encode($row["picture"]);
+        $final_results["search_results"][]=$item;
+
+    }
+
+
+    echo json_encode($final_results);
+
+
+}
 
 //request_type: rented_cars
 $request_type = $_POST["request_type"];
 $res;
 
+//function for renting car
 
+
+// function for loging in
+
+// function for finding a car (Searching)
+
+function authenticate($password, $hashed_password){
+    return $hashed_password==md5($password);
+}
+
+function login($connection){
+
+    $name = $_POST["name"];
+    $password = $_POST["password"];
+
+    $query = "SELECT password, phone, address FROM customer WHERE id = '$name'";
+    $result = mysqli_query($connection, $query);
+    $result_arr = mysqli_fetch_assoc($result);
+    $hashed_password = $result_arr["password"];
+
+    if(authenticate($password, $hashed_password)){
+        //echo "correct authen";
+        /*
+         * CREATE SESSION FOR CURRENT USER!
+         */
+        $_SESSION["user_name"] = $name;
+        $_SESSION["user_phone"] = $result_arr["phone"];
+        $SESSION["user_address"] = $result_arr["address"];
+        echo "success";
+
+    }else{
+
+        echo "failure";
+
+    }
+
+}
 switch($request_type){
     case "rented_cars":
         echo $res = show_rented_cars($connection);
@@ -99,7 +167,15 @@ switch($request_type){
     case "show_returned_cars":
         echo show_returned_cars($connection);
         break;
+    case "login":
+        login($connection);
+        break;
+    case "car_search":
+        car_search($connection);
+        break;
+
 }
+
 //request_type=show_returned_cars
 
 
