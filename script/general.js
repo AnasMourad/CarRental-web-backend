@@ -1,5 +1,8 @@
 $(document).ready(function(){
+
+
    $(".tab, .tab_pressed").on("click",function(){show_tab(this);});
+
 });
 
 function show_tab(tab){
