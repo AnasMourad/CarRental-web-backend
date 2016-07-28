@@ -11,17 +11,19 @@ function maybe_login(event){
 }
 
 function login() {
+
+        var userName = $("#user-name").val();
+        var password = $("#password-input").val();
         $.ajax({
         method: "POST",
         url: "login_session.php",
         dataType: "text",
-        data: new FormData($("#login_form")[0]),
-        processData: false,
-        contentType: false,
+        data: "username="+userName+"&password="+password,
         success: function (data) {
 
             if($.trim(data)=="success"){
-             window.location.assign("cars.html"); //redirect the page to cars.html
+
+                window.location.assign("cars.html"); //redirect the page to cars.html
             }
         else{
             $("#loading").attr("class","loading_hidden"); //hide the loading icon

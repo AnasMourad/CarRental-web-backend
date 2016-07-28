@@ -146,32 +146,48 @@ $res;
 // function for finding a car (Searching)
 
 
-function login($connection){
-
-
+if(is_session_active()){
+    switch($request_type){
+        case "rented_cars":
+            echo $res = show_rented_cars($connection);
+            break;
+        case "return_car":
+            return_car($connection);
+            break;
+        case "show_returned_cars":
+            echo show_returned_cars($connection);
+            break;
+        case "login":
+            login($connection);
+            break;
+        case "car_search":
+            car_search($connection);
+            break;
+        case "rent_car":
+            process_rent_car($connection);
+            break;
+        case "logout":
+            logout();
+            break;
+    }
 }
-switch($request_type){
-    case "rented_cars":
-        echo $res = show_rented_cars($connection);
-        break;
-    case "return_car":
-        return_car($connection);
-        break;
-    case "show_returned_cars":
-        echo show_returned_cars($connection);
-        break;
-    case "login":
-        login($connection);
-        break;
-    case "car_search":
-        car_search($connection);
-        break;
-    case "rent_car":
-        process_rent_car($connection);
-        break;
+function is_session_active() {
+    return isset($_SESSION) && count($_SESSION) > 0 && time() < $_SESSION['start'] + 3 * 60; //check if it has been 1 minute
 }
 
-//request_type=show_returned_cars
+function logout() {
+    // Unset all of the session variables.
+    $_SESSION = array();
+
+
+    if (ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(session_name(), '', time() - 42000, $params["path"], $params["domain"], $params["secure"], $params["httponly"]
+        );
+    }
+
+    session_destroy();
+}
 
 
 

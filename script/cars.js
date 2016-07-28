@@ -8,9 +8,28 @@ $(document).ready(function(){
         display_search_for_car(data);
     });
 
+    $("#logout-link").on("click", logout);
 
 });
 
+function logout(){
+    $.ajax({
+
+        type: 'POST',
+        url: 'server/controller.php',
+        data: { request_type: "logout"},
+
+        success: function (response) {
+
+
+            if (response != "failure") {
+                console.log(response);
+                window.location.assign("index.html"); //redirect the page to cars.html
+
+            }
+        }
+    });
+}
 //Function responsible of returning car
 //AND updating rental records.
 function return_car(rental_id){
