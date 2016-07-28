@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="99a2ba5c-e0a4-444c-9fad-1a24bd453cad" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/login.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/login_session.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rentedcar.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/returnedcar.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/findcar.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cars.html" afterPath="$PROJECT_DIR$/cars.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/findcar.php" afterPath="$PROJECT_DIR$/findcar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rentacar.php" afterPath="$PROJECT_DIR$/rentacar.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/controller.php" afterPath="$PROJECT_DIR$/server/controller.php" />
     </list>
     <ignored path="WebDevelopment-project3.iws" />
@@ -32,15 +27,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="rentacar.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/rentacar.php">
+      <file leaf-file-name="controller.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.93857145">
-              <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.8414286">
+              <caret line="194" column="14" selection-start-line="194" selection-start-column="14" selection-end-line="194" selection-end-column="14" />
               <folding>
-                <marker date="1469653347620" expanded="true" signature="279:385" placeholder="INSERT INTO rental... " />
-                <marker date="1469653347620" expanded="true" signature="487:530" placeholder="UPDATE car S... " />
-                <marker date="1469653347620" expanded="true" signature="487:531" placeholder="UPDATE car S... " />
+                <marker date="1469731794602" expanded="true" signature="154:216" placeholder="SELECT carsp... customer" />
+                <marker date="1469731794602" expanded="true" signature="154:483" placeholder="SELECT car.P... customer" />
+                <marker date="1469731794602" expanded="true" signature="154:510" placeholder="SELECT car.P... customer" />
+                <marker date="1469731794602" expanded="true" signature="154:539" placeholder="SELECT car.P... customer" />
+                <marker date="1469731794602" expanded="true" signature="154:597" placeholder="SELECT car.P... customer" />
+                <marker date="1469731794602" expanded="true" signature="1185:1233" placeholder="SELECT renta... rental" />
+                <marker date="1469731794602" expanded="true" signature="1185:1234" placeholder="SELECT renta... rental" />
+                <marker date="1469731794602" expanded="true" signature="1484:1524" placeholder="UPDATE renta... " />
+                <marker date="1469731794602" expanded="true" signature="1484:1556" placeholder="UPDATE renta... " />
+                <marker date="1469731794602" expanded="true" signature="1484:1557" placeholder="UPDATE renta... " />
+                <marker date="1469731794602" expanded="true" signature="1665:1688" placeholder="UPDATE car S... " />
+                <marker date="1469731794602" expanded="true" signature="1665:1703" placeholder="UPDATE car S... " />
+                <marker date="1469731794602" expanded="true" signature="1665:1704" placeholder="UPDATE car S... " />
+                <marker date="1469731794602" expanded="true" signature="1665:1705" placeholder="UPDATE car S... " />
+                <marker date="1469731794602" expanded="true" signature="1882:2269" placeholder="SELECT car.P... customer" />
+                <marker date="1469731794602" expanded="true" signature="2926:3289" placeholder="SELECT car.i... car" />
+                <marker date="1469731794602" expanded="true" signature="4081:4187" placeholder="INSERT INTO rental... " />
+                <marker date="1469731794602" expanded="true" signature="4289:4332" placeholder="UPDATE car S... " />
+                <marker date="1469731794602" expanded="true" signature="4774:4838" placeholder="SELECT passw... customer" />
               </folding>
             </state>
           </provider>
@@ -58,7 +69,6 @@
         <option value="$PROJECT_DIR$/../umkc/PHP/student_application/script/account.js" />
         <option value="$PROJECT_DIR$/../umkc/PHP/student_application/server/connection.php" />
         <option value="$PROJECT_DIR$/../umkc/PHP/manage_courses/connection.php" />
-        <option value="$PROJECT_DIR$/rentacar.php" />
         <option value="$PROJECT_DIR$/../Quiz_9/connection.php" />
         <option value="$PROJECT_DIR$/../Quiz_9/script/students.js" />
         <option value="$PROJECT_DIR$/../Quiz_10/session.php" />
@@ -66,8 +76,9 @@
         <option value="$PROJECT_DIR$/../umkc/test.php" />
         <option value="$PROJECT_DIR$/login.php" />
         <option value="$PROJECT_DIR$/findcar.php" />
-        <option value="$PROJECT_DIR$/server/controller.php" />
+        <option value="$PROJECT_DIR$/rentacar.php" />
         <option value="$PROJECT_DIR$/cars.html" />
+        <option value="$PROJECT_DIR$/server/controller.php" />
       </list>
     </option>
   </component>
@@ -357,56 +368,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/findcar.php">
+    <entry file="file://$PROJECT_DIR$/rentacar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15857142">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cars.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33830103">
+          <caret line="225" column="59" selection-start-line="225" selection-start-column="59" selection-end-line="225" selection-end-column="67" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3323398">
-          <caret line="85" column="31" selection-start-line="85" selection-start-column="31" selection-end-line="85" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.8414286">
+          <caret line="194" column="14" selection-start-line="194" selection-start-column="14" selection-end-line="194" selection-end-column="14" />
           <folding>
-            <marker date="1469731416293" expanded="true" signature="154:216" placeholder="SELECT carsp... customer" />
-            <marker date="1469731416293" expanded="true" signature="154:483" placeholder="SELECT car.P... customer" />
-            <marker date="1469731416293" expanded="true" signature="154:510" placeholder="SELECT car.P... customer" />
-            <marker date="1469731416293" expanded="true" signature="154:539" placeholder="SELECT car.P... customer" />
-            <marker date="1469731416293" expanded="true" signature="154:597" placeholder="SELECT car.P... customer" />
-            <marker date="1469731416293" expanded="true" signature="1185:1233" placeholder="SELECT renta... rental" />
-            <marker date="1469731416293" expanded="true" signature="1185:1234" placeholder="SELECT renta... rental" />
-            <marker date="1469731416293" expanded="true" signature="1484:1524" placeholder="UPDATE renta... " />
-            <marker date="1469731416293" expanded="true" signature="1484:1556" placeholder="UPDATE renta... " />
-            <marker date="1469731416293" expanded="true" signature="1484:1557" placeholder="UPDATE renta... " />
-            <marker date="1469731416293" expanded="true" signature="1665:1688" placeholder="UPDATE car S... " />
-            <marker date="1469731416293" expanded="true" signature="1665:1703" placeholder="UPDATE car S... " />
-            <marker date="1469731416293" expanded="true" signature="1665:1704" placeholder="UPDATE car S... " />
-            <marker date="1469731416293" expanded="true" signature="1665:1705" placeholder="UPDATE car S... " />
-            <marker date="1469731416293" expanded="true" signature="1882:2269" placeholder="SELECT car.P... customer" />
-            <marker date="1469731416293" expanded="true" signature="2926:3289" placeholder="SELECT car.i... car" />
-            <marker date="1469731416293" expanded="true" signature="4206:4270" placeholder="SELECT passw... customer" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cars.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3323398">
-          <caret line="230" column="20" selection-start-line="230" selection-start-column="18" selection-end-line="230" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rentacar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.93857145">
-          <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
-          <folding>
-            <marker date="1469653347620" expanded="true" signature="279:385" placeholder="INSERT INTO rental... " />
-            <marker date="1469653347620" expanded="true" signature="487:530" placeholder="UPDATE car S... " />
-            <marker date="1469653347620" expanded="true" signature="487:531" placeholder="UPDATE car S... " />
+            <marker date="1469731794602" expanded="true" signature="154:216" placeholder="SELECT carsp... customer" />
+            <marker date="1469731794602" expanded="true" signature="154:483" placeholder="SELECT car.P... customer" />
+            <marker date="1469731794602" expanded="true" signature="154:510" placeholder="SELECT car.P... customer" />
+            <marker date="1469731794602" expanded="true" signature="154:539" placeholder="SELECT car.P... customer" />
+            <marker date="1469731794602" expanded="true" signature="154:597" placeholder="SELECT car.P... customer" />
+            <marker date="1469731794602" expanded="true" signature="1185:1233" placeholder="SELECT renta... rental" />
+            <marker date="1469731794602" expanded="true" signature="1185:1234" placeholder="SELECT renta... rental" />
+            <marker date="1469731794602" expanded="true" signature="1484:1524" placeholder="UPDATE renta... " />
+            <marker date="1469731794602" expanded="true" signature="1484:1556" placeholder="UPDATE renta... " />
+            <marker date="1469731794602" expanded="true" signature="1484:1557" placeholder="UPDATE renta... " />
+            <marker date="1469731794602" expanded="true" signature="1665:1688" placeholder="UPDATE car S... " />
+            <marker date="1469731794602" expanded="true" signature="1665:1703" placeholder="UPDATE car S... " />
+            <marker date="1469731794602" expanded="true" signature="1665:1704" placeholder="UPDATE car S... " />
+            <marker date="1469731794602" expanded="true" signature="1665:1705" placeholder="UPDATE car S... " />
+            <marker date="1469731794602" expanded="true" signature="1882:2269" placeholder="SELECT car.P... customer" />
+            <marker date="1469731794602" expanded="true" signature="2926:3289" placeholder="SELECT car.i... car" />
+            <marker date="1469731794602" expanded="true" signature="4081:4187" placeholder="INSERT INTO rental... " />
+            <marker date="1469731794602" expanded="true" signature="4289:4332" placeholder="UPDATE car S... " />
+            <marker date="1469731794602" expanded="true" signature="4774:4838" placeholder="SELECT passw... customer" />
           </folding>
         </state>
       </provider>

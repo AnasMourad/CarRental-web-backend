@@ -223,12 +223,12 @@
         //use hidden element to set the car_id
         $("#hidden-input").val(car_id);
         //send ajax request
-        var data_2 = "hidden-input="+car_id;
+        var data_2 = "hidden-input="+car_id+"&request_type=rent_car";
         console.log(data_2);
         $.ajax({
 
             type: 'POST',
-            url: 'rentacar.php',
+            url: 'server/controller.php',
             data: data_2,
 
             success: function (response) {
@@ -236,7 +236,7 @@
                 console.log(response);
                 if (response != "failure") {
 
-                    alert("done");
+                    alert("Car rental Done!");
                     //Showing rest of results with the same search input!
                     //All cars will stay but the rented car!
                     var data = $("#search-input").serialize();
