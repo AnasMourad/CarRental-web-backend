@@ -9,12 +9,18 @@ function maybe_login(event){
     if (event.keyCode == 13) //ENTER KEY
         login();
 }
-
+//Processing login form
 function login() {
 
         var userName = $("#user-name").val();
         var password = $("#password-input").val();
-        $.ajax({
+        $("#loading").attr("class","loading"); //show the loading icon
+        //using Javascript session to store user name accross all the pages
+        window.username= userName;
+
+
+
+    $.ajax({
         method: "POST",
         url: "login_session.php",
         dataType: "text",

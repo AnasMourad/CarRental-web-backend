@@ -1,15 +1,18 @@
 $(document).ready(function(){
 
-
-    show_rented_cars();
+     show_rented_cars();
     show_returned_cars();
     $("#find-car").on("click", function(){
         var data = $("#search-input").serialize();
         display_search_for_car(data);
     });
-
+    //show user's name
+    $("#hidden-user-id").val();
     $("#logout-link").on("click", logout);
 
+    $name = window.username;
+    $("#username").text(name);
+    //console.log(window.username);
 });
 
 function logout(){
@@ -20,7 +23,6 @@ function logout(){
         data: { request_type: "logout"},
 
         success: function (response) {
-
 
             if (response != "failure") {
                 console.log(response);
@@ -149,6 +151,8 @@ function rent_car(curr_car_id){
 
 function display_search_for_car(data){
     data+='&request_type=car_search';
+    $("#loading").attr("class","loading"); //show the loading icon
+
     $.ajax({
 
         type: 'POST',
@@ -161,7 +165,9 @@ function display_search_for_car(data){
             console.log(data);
             response = response.search_results;
             console.log("resp: "+response);
-            if (response != undefined) {//there is cars in the response
+
+
+            if (response != "failure") {//there is cars in the response
 
                 var info_template=$("#find-car-template").html();//get the info-template
                 var html_maker=new htmlMaker(info_template);
@@ -172,6 +178,8 @@ function display_search_for_car(data){
                     var curr = $(this).attr("id")
                     rent_car(curr);
                 });
+                $("#loading").attr("class","loading-hidden"); //show the loading icon
+
 
             } else {
                 alert("Couldn't find the car!");

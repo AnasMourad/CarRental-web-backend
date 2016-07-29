@@ -103,7 +103,11 @@ function car_search($connection){
         FROM car
           INNER JOIN carspecs
         on car.carSpecsId = carspecs.id
-        WHERE (('$searchfor' LIKE CONCAT('%', carspecs.model, '%')) OR ('$searchfor' LIKE CONCAT('%', carspecs.yearMade, '%' )))
+        WHERE (
+        ('$searchfor' LIKE CONCAT('%', carspecs.model, '%')) OR ('$searchfor' LIKE CONCAT('%', carspecs.yearMade, '%' ))
+        OR ('$searchfor' LIKE CONCAT('%', carspecs.make, '%' ))OR ('$searchfor' LIKE CONCAT('%', carspecs.size, '%' ))
+        OR ('$searchfor' LIKE CONCAT('%', car.color, '%' ))
+        )
         AND car.status = 1
         ";
 
@@ -115,7 +119,7 @@ function car_search($connection){
         while ($row = mysqli_fetch_assoc($process_query)) {
 
             $item = array("make" => $row["make"], "model" => $row["model"], "year" => $row["yearMade"],
-                "size" => $row["size"], "ID" => $row["id"]);
+                "size" => $row["size"], "ID" => $row["id"], "color" => $row["color"]);
             $item["picture"] = 'data:' . $row["picture_type"] . ';base64,' . base64_encode($row["picture"]);
             $final_results["search_results"][] = $item;
 
