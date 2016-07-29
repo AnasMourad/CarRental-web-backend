@@ -44,7 +44,7 @@ function return_car(rental_id){
 
 
             if (response != "failure") {
-                console.log(response);
+                alert("car returned successfully!!");
                 show_rented_cars();
                 show_returned_cars();
 
@@ -65,8 +65,6 @@ function show_rented_cars(){
 
         success: function (response){
 
-
-
             if (response != "failure") {
                 console.log(response);
                 var info_template=$("#rented-car-template").html();//get the info-template
@@ -78,6 +76,9 @@ function show_rented_cars(){
                     return_car($(this).attr("data-rental-id"));
 
                 });
+            }else if(response==null){
+                //i was tryna redirect if not logged in!
+                //console.log("redirect because not logged in");
             }
         }
     });
@@ -159,9 +160,8 @@ function display_search_for_car(data){
         success: function (response) {
             console.log(data);
             response = response.search_results;
-
-            if (response != "failure") {
-
+            console.log("resp: "+response);
+            if (response != undefined) {//there is cars in the response
 
                 var info_template=$("#find-car-template").html();//get the info-template
                 var html_maker=new htmlMaker(info_template);
@@ -169,14 +169,12 @@ function display_search_for_car(data){
                 $("#search_results").html(html);//show the student info in the info div
 
                 $(".car_rent").on("click", function(){
-
                     var curr = $(this).attr("id")
-                    alert(curr);
                     rent_car(curr);
                 });
 
             } else {
-                alert("failure");
+                alert("Couldn't find the car!");
             }
         }
     });
